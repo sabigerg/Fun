@@ -1,3 +1,5 @@
+<% provide(:title, 'Sign up') %>
+
 <%= form_for(@student) do |f| %>
   <% if @student.errors.any? %>
     <div id="error_explanation">
@@ -9,23 +11,28 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %> 
 
+
+<div class="row">
+  <div class="span6 offset3">
+
+	
   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.label :lastname %><br />
+    <%= f.text_field :lastname %>
   </div>
   <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth %>
+    <%= f.label :dateofbirth %><br />
+    <%= f.date_select :dateofbirth, :start_year => 1960 %>
   </div>
   <div class="field">
     <%= f.label :nationality %><br />
-    <%= f.text_field :nationality %>
+    <%= f.select(:nationality, Student::COUNTRIES) %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
@@ -35,11 +42,21 @@
     <%= f.label :username %><br />
     <%= f.text_field :username %>
   </div>
+
   <div class="field">
-    <%= f.label :student_id %><br />
-    <%= f.text_field :student_id %>
+<%= f.label :password %>
+      <%= f.password_field :password %>
   </div>
+
+  <div class="field">
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
   </div>
 <% end %>
+
+  </div>
+</div>

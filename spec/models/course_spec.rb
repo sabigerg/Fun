@@ -32,3 +32,4 @@ end
 it "should create valid course factories" do
   @course1.shoudl be_valid
 end
+end
